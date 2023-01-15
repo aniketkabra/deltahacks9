@@ -22,7 +22,9 @@
           <base-input type="email"
                     label="Email"
                     placeholder="Email"
-                    v-model="user.email">
+                    v-model="user.email"
+                    id="replaceText">   
+                    <!-- TESTNG REPLACING HERE -->
           </base-input>
         </div>
       </div>
@@ -100,6 +102,7 @@
 </template>
 <script>
   import Card from 'src/components/Cards/Card.vue'
+  import abbr from './abbreviations.json'
 
   export default {
     components: {
@@ -124,7 +127,23 @@
     methods: {
       updateProfile () {
         alert('Your data: ' + JSON.stringify(this.user))
+      },
+      makeLong(e) {
+        if (String(`${e.code}`) === 'Space') {
+          var temp = this.user.email.split(" ");
+          var lastWord = temp.pop();
+          // console.log("TEMP IS : ", temp)
+          // console.log("last word IS : ", lastWord)
+          if (lastWord.indexOf("\\") == 0) { // replaces any word starting with \ with abbreviation
+            lastWord = abbr[lastWord.slice(1)];
+            this.user.email = temp.join(" ") + ' ' + lastWord + ' ';
+          }
+          // console.log(this.user.email)
+        }
       }
+    },
+    mounted() {
+      document.getElementById("replaceText").addEventListener("keyup", this.makeLong)
     }
   }
 
