@@ -76,12 +76,14 @@
               <template slot="columns"></template>
 
               <template slot-scope="{row}">
-                <td>{{row.title}}</td>
-                <td class="td-actions text-right">
+                <td>{{row.shiftid}}</td>
+                <td>{{row.date}}</td>
+                <td>{{row.time}}</td>
+                <!-- <td class="td-actions text-right">
                   <button type="button" class="btn-simple btn btn-xs btn-info" v-tooltip.top-center="editTooltip">
                     <i class="fa fa-check"></i>
                   </button>
-                </td>
+                </td> -->
               </template>
             </l-table>
             <div class="footer">
@@ -198,14 +200,8 @@
           ]
         },
         scheduleData: {
-          data: [
-            {title: 'Patient A', checked: false},
-            {title: 'Patient B', checked: true},
-            {
-              title: 'Patient C',
-              checked: true
-            },
-          ]
+          data: [],
+          columns: ['ShiftID', 'Date', 'Time']
         }
       }
     },
@@ -237,10 +233,11 @@
           const [key, value] = entry;
           var date = new Date(value.startDate);
           date = date.toDateString();
+          this.scheduleData.data.push({'shiftid': value.id, 'date': date, 'time': value.startDate.substr(12,4)})
           listOfTimes.push([value.id, date, value.startDate.substr(12,4)]);
         });
 
-        console.log(listOfTimes);
+        console.log(this.scheduleData.data);
       }
     },
     mounted() {
