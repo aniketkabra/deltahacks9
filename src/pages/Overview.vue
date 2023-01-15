@@ -9,10 +9,7 @@
       </div>
       <div class="row">
         <div class="col-xl-3 col-md-6">
-          <h3>(insert images here)</h3>
-        </div>
-        <div class="col-xl-3 col-md-6">
-          <h3>Your Patients</h3>
+          <h3>You have 6 patients:</h3>
         </div>
       </div>
       <div class="row">
