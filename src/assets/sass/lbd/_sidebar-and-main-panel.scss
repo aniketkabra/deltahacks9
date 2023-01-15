@@ -20,6 +20,10 @@ body > .navbar-collapse{
         width: 260px;
         z-index: 4;
         padding-bottom: 20px;
+
+        .introduction {
+            margin: auto;
+        }
     }
 
     .sidebar-background{
@@ -241,6 +245,7 @@ body > .navbar-collapse{
     &:before{
         opacity: .7;
         background: #fff;
+        border-radius: 25px;
     }
 
     &:after{
