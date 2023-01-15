@@ -1,14 +1,13 @@
 .sidebar,
 body > .navbar-collapse{
     position: fixed;
-    height: 100vh;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    height: 95vh;
+    top: 10px;
+    left: 10px;
     width: 260px;
     display: block;
     z-index: 1;
-    color: #fff;
+    color: black;
     font-weight: 200;
     background-size: cover;
     background-position: center center;
@@ -21,6 +20,10 @@ body > .navbar-collapse{
         width: 260px;
         z-index: 4;
         padding-bottom: 20px;
+
+        .introduction {
+            margin: auto;
+        }
     }
 
     .sidebar-background{
@@ -240,47 +243,42 @@ body > .navbar-collapse{
     }
 
     &:before{
-        opacity: .33;
-        background: #000000;
+        opacity: .7;
+        background: #fff;
+        border-radius: 25px;
     }
 
     &:after{
-       @include icon-gradient($new-purple, $purple-color-bottom);
-       z-index: 3;
-       opacity: 1;
+        z-index: 3;
+        opacity: 1;
     }
 
-    &[data-image]:after,
-    &.has-image:after{
-        opacity: .77;
-    }
 
-    &[data-color="black"]:after{
-      @include icon-gradient($black-color-top, $black-color-bottom);
-    }
-    &[data-color="blue"]:after{
-        @include icon-gradient($new-dark-blue, $blue-color-bottom);
-    }
-    &[data-color="azure"]:after{
-        @include icon-gradient($new-blue, $azure-color-bottom);
-    }
-    &[data-color="green"]:after{
-        @include icon-gradient($new-green, $green-color-bottom);
-    }
-    &[data-color="orange"]:after{
-        @include icon-gradient($new-orange, $orange-color-bottom);
-    }
-    &[data-color="red"]:after{
-        @include icon-gradient($new-red, $red-color-bottom);
-    }
-    &[data-color="purple"]:after{
-        @include icon-gradient($new-purple, $purple-color-bottom);
-    }
+    // &[data-color="black"]:after{
+    //   @include icon-gradient($black-color-top, $black-color-bottom);
+    // }
+    // &[data-color="blue"]:after{
+    //     @include icon-gradient($new-dark-blue, $blue-color-bottom);
+    // }
+    // &[data-color="azure"]:after{
+    //     @include icon-gradient($new-blue, $azure-color-bottom);
+    // }
+    // &[data-color="green"]:after{
+    //     @include icon-gradient($new-green, $green-color-bottom);
+    // }
+    // &[data-color="orange"]:after{
+    //     @include icon-gradient($new-orange, $orange-color-bottom);
+    // }
+    // &[data-color="red"]:after{
+    //     @include icon-gradient($new-red, $red-color-bottom);
+    // }
+    // &[data-color="purple"]:after{
+    //     @include icon-gradient($new-purple, $purple-color-bottom);
+    // }
 }
 
 
 .main-panel{
-    background: rgba(203,203,210,.15);
     position: relative;
     float: right;
     width: $sidebar-width;
@@ -302,7 +300,7 @@ body > .navbar-collapse{
 
 .sidebar,
 .main-panel{
-    max-height: 100%;
+    max-height: 97%;
     height: 100%;
     -webkit-transition-property: top,bottom;
     transition-property: top,bottom;
