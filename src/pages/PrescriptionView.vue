@@ -200,9 +200,11 @@
             var lastWord = temp.pop();
             // console.log("TEMP IS : ", temp)
             // console.log("last word IS : ", lastWord)
-            if (lastWord.indexOf("\\") == 0) { // replaces any word starting with \ with abbreviation
+            if (lastWord.indexOf("\\") == 0 && abbr[lastWord.slice(1)]) { // replaces any word starting with \ with abbreviation
                 lastWord = abbr[lastWord.slice(1)];
-                this.prescriptionText = temp.join(" ") + ' ' + lastWord;
+                if (lastWord !== "undefined") {
+                    this.prescriptionText = temp.join(" ") + ' ' + lastWord;
+                }
             }
             // console.log("prescription is: ", this.prescriptionText)
             }
