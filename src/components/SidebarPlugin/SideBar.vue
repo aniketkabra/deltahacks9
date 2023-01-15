@@ -1,8 +1,6 @@
 <template>
   <div class="sidebar"
-       :style="sidebarStyle"
-       :data-color="backgroundColor"
-       :data-image="backgroundImage">
+       :style="sidebarStyle">
     <div class="sidebar-wrapper">
       <div class="logo">
         <a href="#" class="simple-text logo__container">
@@ -53,10 +51,6 @@
           return acceptedValues.indexOf(value) !== -1
         }
       },
-      backgroundImage: {
-        type: String,
-        default: 'img/sidebar-5.jpg'
-      },
       activeColor: {
         type: String,
         default: 'success',
@@ -81,9 +75,7 @@
     },
     computed: {
       sidebarStyle () {
-        return {
-          backgroundImage: `url(${this.backgroundImage})`
-        }
+        return {}
       }
     }
   }
