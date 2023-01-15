@@ -23,10 +23,13 @@ import LightBootstrap from "./light-bootstrap-main";
 // router setup
 import routes from "./routes/routes";
 
+import TextareaAutosize from 'vue-textarea-autosize';
+
 import "./registerServiceWorker";
 // plugin setup
 Vue.use(VueRouter);
 Vue.use(LightBootstrap);
+Vue.use(TextareaAutosize);
 
 // configure router
 const router = new VueRouter({

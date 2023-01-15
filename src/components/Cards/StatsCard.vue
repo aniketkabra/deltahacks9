@@ -1,12 +1,12 @@
 <template>
   <card class="card-stats">
     <div class="row">
-      <div class="col-5" v-if="$slots.header">
+      <div class="col-md-11" v-if="$slots.header">
         <div class="icon-big text-center">
           <slot name="header"></slot>
         </div>
       </div>
-      <div class="col-7" v-if="$slots.content">
+      <div class="col-xl-6" v-if="$slots.content">
         <div class="numbers">
           <slot name="content"></slot>
         </div>
