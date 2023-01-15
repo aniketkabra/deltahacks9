@@ -3,7 +3,9 @@ body,
 .wrapper{
     min-height: 100vh;
     position: relative;
-    background: linear-gradient(189.83deg, #DDF4F4 3.97%, #EED6E5 89.55%);
+    background: linear-gradient(to bottom left, #DDF4F4, #EED6E5) fixed;
+    // background-repeat: no-repeat scroll;
+    // background-size: cover;
 }
 a{
   color: $info-color;

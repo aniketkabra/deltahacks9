@@ -1,7 +1,7 @@
 <template>
   <card class="card-stats">
     <div class="row">
-      <div class="col-md-11" v-if="$slots.header">
+      <div class="col-md-12" v-if="$slots.header">
         <div class="icon-big text-center">
           <slot name="header"></slot>
         </div>

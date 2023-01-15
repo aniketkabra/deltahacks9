@@ -2,6 +2,7 @@
     border-radius: $border-radius-base;
     background-color: $white-color;
     margin-bottom: 30px;
+    box-shadow: 5px 5px 12px 3px #0000000D;
 
     .card-image{
         width: 100%;
@@ -166,7 +167,7 @@
 
 .card-stats{
     .card-body{
-        padding: 15px 15px 0px;
+        padding: 15px 15px 15px;
 
         .numbers{
             font-size: 1.8rem;
