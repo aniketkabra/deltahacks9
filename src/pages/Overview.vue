@@ -25,18 +25,8 @@
       <div class="row">
         <div class="col-md-6">
             <div class="row">
-                <div class="col-md-6" style="min-width: 100%;">
-                  <stats-card>
-                    <div slot="header" class="icon-success">
-                      <i class="nc-icon nc-chat-round text-success"></i>
-                      <h2 class="card-title">Contact patient</h2>
-                    </div>
-                  </stats-card>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6" style="min-width: 100%;">
-                  <card>
+              <div class="col-md-6" style="min-width: 100%;">
+                  <card class="inside-card">
                     <template slot="header">
                       <h3 class="title">Patients</h3>
                     </template>
@@ -65,9 +55,19 @@
                   </card>
                 </div>
             </div>
+            <div class="row">
+              <div class="col-md-6" style="min-width: 100%;">
+                  <stats-card class="inside-card">
+                    <div slot="header" class="icon-success">
+                      <i class="nc-icon nc-chat-round text-success"></i>
+                      <h2 class="card-title">Contact patient</h2>
+                    </div>
+                  </stats-card>
+                </div>
+            </div>
         </div>
         <div class="col-md-6">
-          <card>
+          <card class="inside-card">
             <template slot="header">
               <h3 class="title">Schedule</h3>
             </template>
