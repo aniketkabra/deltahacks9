@@ -3,8 +3,9 @@
        :style="sidebarStyle">
       <div class="sidebar-wrapper">
         <div class="introduction">
-          <h5><b>Good Morning,</b></h5>
-          <p>{{title}}</p>
+          <h3><b>Good Morning,</b></h3>
+          <h5>{{title}}</h5>
+          <img src="./../../assets/images/cat_glasses.png" width="50%">
         </div>
       </div>
   </div>
@@ -47,6 +48,7 @@
   .sidebar .sidebar-wrapper {
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
  .sidebar .nav-main__links {
    flex: 1;
@@ -54,4 +56,7 @@
  .sidebar .sidebar-wrapper .logo .logo__container {
    padding-left: 10px;
  }
+ img {
+  border-radius: 50%;
+}
 </style>
