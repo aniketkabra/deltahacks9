@@ -124,6 +124,7 @@
       return {
         editTooltip: 'Edit Task',
         deleteTooltip: 'Remove',
+        tableVar: [],
         pieChart: {
           data: {
             labels: ['40%', '20%', '40%'],
@@ -205,6 +206,43 @@
           ]
         }
       }
+    },
+    methods: {
+      async getShifts() {
+        var myHeaders = new Headers();
+        myHeaders.append("hypercare-scope", "eyJvcmdhbml6YXRpb25JZCI6NjA2LCJzdGF0dXMiOiJhZG1pbiJ9");
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", "Bearer 656dd430d867f1a88ee35c82da1337afec2bca03")
+
+        var graphql = JSON.stringify({
+          query: "query FetchMyShifts($userId: ID!, $startDate: String!, $endDate: String, $limit: Int) {\n    admin {\n        user(id : $userId) {\n            shifts(startDate: $startDate, endDate: $endDate, limit: $limit) {\n                startDate\n                endDate\n                offset\n                shifts {\n                    ...ShiftFragment\n                }\n            }\n        }\n       \n    }\n}\n\nfragment ShiftFragment on Shift {\n    id\n    startDate\n    endDate\n    user {\n        id\n        username\n        firstname\n        lastname\n    }\n}",
+          variables: {"userId":"f6442d7d-15ca-4e04-abca-8a0bc8463f51","startDate":"2023-01-02T06:03:38.610Z","endDate":"2023-12-03T06:03:38.610Z"}
+        })
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: graphql,
+          redirect: 'follow'
+        };
+
+        let response = await fetch("https://api-prod.hypercare.com/graphql/private", requestOptions)
+          .catch(error => console.log('error', error));
+        const result = await response.json();
+        var res = result.data.admin.user.shifts.shifts;
+
+        var listOfTimes = [];
+        Object.entries(res).forEach((entry) => {
+          const [key, value] = entry;
+          var date = new Date(value.startDate);
+          date = date.toDateString();
+          listOfTimes.push([value.id, date, value.startDate.substr(12,4)]);
+        });
+
+        console.log(listOfTimes);
+      }
+    },
+    mounted() {
+      this.getShifts();
     }
   }
 </script>
