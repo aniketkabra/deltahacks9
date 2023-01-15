@@ -1,8 +1,9 @@
 .card{
     border-radius: $border-radius-base;
     background-color: $white-color;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     box-shadow: 5px 5px 12px 3px #0000000D;
+    background-color: rgba(255, 252, 252, 0.7);
 
     .card-image{
         width: 100%;
@@ -47,7 +48,8 @@
         padding: 15px 15px 10px 15px;
     }
     .card-header{
-        padding: 15px 15px 0;
+        border-radius: 25px 25px 0 0;
+        // padding: 15px 15px 0;
         background-color: $white-color;
         border-bottom: none !important;
 
@@ -163,7 +165,10 @@
     }
 }
 
-
+.inside-card {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+}
 
 .card-stats{
     .card-body{
