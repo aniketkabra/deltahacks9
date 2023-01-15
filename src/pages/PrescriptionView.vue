@@ -27,7 +27,7 @@
                         style="min-width: 100%;"
                     />
                     <div class="footer">
-                        <button @click="$router.push(`/admin/patient/${patientName}`)">Save</button>
+                        <button @click="addPrescription(); $router.push(`/admin/patient/${patientName}`)">Save</button>
                         <hr>
                     </div>
                 </card>
@@ -98,6 +98,8 @@
     import StatsCard from 'src/components/Cards/StatsCard.vue'
     import LTable from 'src/components/Table.vue'
     import abbr from './UserProfile/abbreviations.json'
+    import store from '../store'
+    import { SET_PRESCRIPTION } from '../store/storeconstants'
   
     export default {
       components: {
@@ -204,6 +206,15 @@
             }
             // console.log("prescription is: ", this.prescriptionText)
             }
+        },
+        addPrescription() {
+            var temp = [
+                {title: 'Cyclosporine', checked: false},
+                {title: 'Tacrolimus', checked: true},
+                {title: 'Imuran', checked: true},
+                {title: 'Colace', checked: true}
+            ]
+            store.commit(`auth/${SET_PRESCRIPTION}`, temp);
         }
     },
       mounted() {

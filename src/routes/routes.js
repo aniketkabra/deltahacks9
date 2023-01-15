@@ -42,6 +42,12 @@ const routes = [
         props: true
       },
       {
+        path: 'patient/:patientName',
+        name: 'Patient',
+        component: Patient,
+        props: true
+      },
+      {
         path: 'add/prescription/:patientName',
         name: 'Prescription',
         component: Prescription,

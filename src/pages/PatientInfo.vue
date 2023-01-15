@@ -111,6 +111,8 @@
     import ChartCard from 'src/components/Cards/ChartCard.vue'
     import StatsCard from 'src/components/Cards/StatsCard.vue'
     import LTable from 'src/components/Table.vue'
+    import store from '../store'
+    import { GET_PRESCRIPTION } from '../store/storeconstants'
   
     export default {
       components: {
@@ -193,14 +195,7 @@
             ]
           },
           prescriptionData: {
-            data: [
-              {title: 'Cyclosporine', checked: false},
-              {title: 'Tacrolimus', checked: true},
-              {
-                title: 'Imuran',
-                checked: true
-              },
-            ]
+            data: store.getters[`auth/${GET_PRESCRIPTION}`]
           },
           appointmentData: {
             data: [
@@ -214,11 +209,9 @@
           }
         }
       },
-      methods: {
-        async someFunc() {
-  
-        }
-      }
+    //   mounted() {
+    //     this.$store.commit(`auth/${SET_PRESCRIPTION}`, this.prescriptionData);
+    //   }
     }
   </script>
   <style>
